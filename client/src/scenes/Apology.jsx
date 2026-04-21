@@ -47,9 +47,11 @@ export default function Apology({ onAccept, onEvent }) {
     const h = window.innerHeight
     const bw = btn.offsetWidth || 60
     const bh = btn.offsetHeight || 30
+    const minTop = 120
+    const maxTop = h - bh - 40
     setNoPos({
-      left: Math.random() * (w - bw),
-      top: Math.random() * (h - bh),
+      left: Math.max(8, Math.random() * (w - bw - 8)),
+      top: minTop + Math.random() * Math.max(0, maxTop - minTop),
     })
   }
 
@@ -90,8 +92,9 @@ export default function Apology({ onAccept, onEvent }) {
         onMouseEnter={running ? placeRandom : handleNo}
         onClick={running ? placeRandom : handleNo}
         onTouchStart={(e) => { if (running) { e.preventDefault(); placeRandom() } else { handleNo() } }}
-        className={`btn-ghost mt-3 whitespace-nowrap`}
+        className={`btn-ghost mt-3`}
         style={{
+          maxWidth: 'calc(100vw - 2rem)',
           fontSize: shrinkCount > 0 ? `${size}rem` : undefined,
           padding: shrinkCount > 0 ? `${size * 10}px ${size * 24}px` : undefined,
           position: running ? 'fixed' : 'relative',
