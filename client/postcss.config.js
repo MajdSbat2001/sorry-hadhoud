@@ -1,6 +1,6 @@
 export default {
   plugins: {
-    tailwindcss: { config: '/Users/yemnak/Desktop/sorry-hadhoud/client/tailwind.config.js' },
+    tailwindcss: { config: new URL('./tailwind.config.js', import.meta.url).pathname },
     autoprefixer: {},
   },
 }
