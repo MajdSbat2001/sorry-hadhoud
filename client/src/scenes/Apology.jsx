@@ -76,9 +76,10 @@ export default function Apology({ onAccept, onEvent }) {
         onClick={onAccept}
         className="btn-primary mt-8 animate-wiggle"
         style={{
-          fontSize: `${Math.min(1 + noCount * 0.38, 3.6)}rem`,
-          padding: `${Math.min(12 + noCount * 5, 48)}px ${Math.min(32 + noCount * 12, 96)}px`,
-          transition: 'font-size 0.4s, padding 0.4s',
+          transform: `scale(${Math.min(1 + noCount * 0.28, 3.2)})`,
+          transformOrigin: 'center center',
+          transition: 'transform 0.4s cubic-bezier(0.34,1.56,0.64,1)',
+          marginBottom: `${Math.min(noCount * 18, 120)}px`,
         }}
       >
         Yes, I forgive you 💖
