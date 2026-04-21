@@ -1,0 +1,17 @@
+{
+  "name": "sorry-hadhoud",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A full-stack apology game for the most amazing boyfriend 💖",
+  "scripts": {
+    "install:all": "npm install && npm install --prefix server && npm install --prefix client",
+    "dev:server": "npm --prefix server run dev",
+    "dev:client": "npm --prefix client run dev",
+    "dev": "concurrently -k -n server,client -c magenta,cyan \"npm:dev:server\" \"npm:dev:client\"",
+    "build": "npm --prefix client run build",
+    "start": "npm --prefix server start"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

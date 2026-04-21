@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  overscroll-behavior: none;
+  touch-action: manipulation;
+}
+
+body {
+  @apply font-serif text-rose-800 bg-gradient-to-br from-rose-100 via-rose-200 to-rose-300;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-gradient-to-r from-rose-500 to-rose-600 text-white font-bold rounded-full
+           px-8 py-3 text-base md:text-lg transition-transform active:scale-95
+           hover:-translate-y-0.5;
+    box-shadow: 0 6px 24px rgba(192, 24, 74, 0.35);
+    min-height: 48px;
+  }
+  .btn-primary:hover {
+    box-shadow: 0 10px 32px rgba(192, 24, 74, 0.45);
+  }
+
+  .btn-ghost {
+    @apply bg-white text-rose-400 border-2 border-rose-200 rounded-full px-6 py-2
+           text-sm transition-all cursor-pointer;
+  }
+
+  .card-glass {
+    @apply bg-white/70 backdrop-blur-md rounded-3xl p-6 md:p-8;
+    box-shadow: 0 2px 12px rgba(192, 24, 74, 0.18);
+  }
+
+  h1.display {
+    @apply font-display font-bold text-rose-700 leading-tight;
+    font-size: clamp(1.9rem, 7vw, 3rem);
+  }
+
+  h2.display {
+    @apply font-display font-bold text-rose-700;
+    font-size: clamp(1.4rem, 5vw, 2rem);
+  }
+
+  p.prose {
+    font-size: clamp(0.98rem, 3.6vw, 1.125rem);
+    line-height: 1.65;
+  }
+}
