@@ -3,6 +3,7 @@ import Start from './scenes/Start.jsx'
 import HeartCatcher from './scenes/HeartCatcher.jsx'
 import MemoryMatch from './scenes/MemoryMatch.jsx'
 import LoveLetter from './scenes/LoveLetter.jsx'
+import Photos from './scenes/Photos.jsx'
 import Apology from './scenes/Apology.jsx'
 import Final from './scenes/Final.jsx'
 import FloatingHearts from './components/FloatingHearts.jsx'
@@ -43,6 +44,11 @@ export default function App() {
 
   function onLetterDone() {
     fireEvent('level_complete', { level: 'letter' })
+    advance('photos')
+  }
+
+  function onPhotosDone() {
+    fireEvent('level_complete', { level: 'photos' })
     advance('apology')
   }
 
@@ -71,6 +77,7 @@ export default function App() {
       {scene === 'hearts'  && <HeartCatcher onComplete={onHeartsDone} onEvent={fireEvent} />}
       {scene === 'memory'  && <MemoryMatch onComplete={onMemoryDone} onEvent={fireEvent} />}
       {scene === 'letter'  && <LoveLetter onComplete={onLetterDone} onEvent={fireEvent} />}
+      {scene === 'photos'  && <Photos onNext={onPhotosDone} onEvent={fireEvent} />}
       {scene === 'apology' && <Apology onAccept={onAccept} onEvent={fireEvent} />}
       {scene === 'final'   && <Final stats={statsRef.current} onSendMessage={onSend} onRestart={restart} />}
     </div>

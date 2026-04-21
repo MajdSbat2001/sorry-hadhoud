@@ -5,6 +5,7 @@ const STEPS = [
   { key: 'hearts',  label: 'Hearts'   },
   { key: 'memory',  label: 'Memory'   },
   { key: 'letter',  label: 'Letter'   },
+  { key: 'photos',  label: 'Photos'   },
   { key: 'apology', label: 'Apology'  },
   { key: 'final',   label: 'Forgive'  },
 ]
