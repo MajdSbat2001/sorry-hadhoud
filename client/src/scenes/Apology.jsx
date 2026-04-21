@@ -55,7 +55,7 @@ export default function Apology({ onAccept, onEvent }) {
     })
   }
 
-  const label = noCount === 0 ? 'No' : PHASES[Math.min(noCount - 1, PHASES.length - 1)]
+  const message = noCount > 0 ? PHASES[Math.min(noCount - 1, PHASES.length - 1)] : null
   const size = SHRINK_SIZES[Math.min(shrinkCount, SHRINK_SIZES.length - 1)]
 
   return (
@@ -74,9 +74,18 @@ export default function Apology({ onAccept, onEvent }) {
         </p>
       </div>
 
+      {message && (
+        <div
+          key={noCount}
+          className="mt-5 text-rose-500 font-semibold text-lg animate-popIn"
+        >
+          {message}
+        </div>
+      )}
+
       <button
         onClick={onAccept}
-        className="btn-primary mt-8 animate-wiggle"
+        className="btn-primary mt-6 animate-wiggle"
         style={{
           transform: `scale(${Math.min(1 + noCount * 0.28, 3.2)})`,
           transformOrigin: 'center center',
@@ -103,7 +112,7 @@ export default function Apology({ onAccept, onEvent }) {
           transition: running ? 'left 0.1s, top 0.1s, font-size 0.4s, padding 0.4s' : 'font-size 0.4s, padding 0.4s',
         }}
       >
-        {label}
+        No
       </button>
     </div>
   )
