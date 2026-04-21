@@ -10,9 +10,8 @@ export default function Photos({ onNext, onEvent }) {
 
   useEffect(() => {
     onEvent?.('photos_open')
-    if (PHOTOS.length === 0) return
-    const t = setInterval(() => setIdx(i => (i + 1) % PHOTOS.length), 4000)
-    return () => clearInterval(t)
+    // Preload all images so they're instant when he swipes
+    PHOTOS.forEach(src => { const img = new Image(); img.src = src })
   }, [onEvent])
 
   function prev() { setIdx(i => (i - 1 + PHOTOS.length) % PHOTOS.length) }
